@@ -84,6 +84,13 @@ function problemThree(stringOne, stringTwo) {
 function problemFour(start, end) {
   var moves;
   // Your code here
+  //use Manhattan distance formula https://www.datacamp.com/tutorial/manhattan-distance
+  //establish starting coordinates
+  let [x1, y1] = start;
+  //establish ending coordinates
+  let [x2, y2] = end;
+  //calculate number of moves following the grid
+  moves = Math.abs(x1 -x2) + Math.abs(y1 - y2);
 
   return moves;
 }
