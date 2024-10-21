@@ -16,9 +16,24 @@ function problemOne(obj) {
   let avg;
 
   //add your code here
-
-  return avg;
+  let grades = 0;
+  let count = 0;
+  for(let key in obj) {
+    let total = obj[key];
+    
+    if (typeof total === 'number' && total >= 0 && total <= 100 ){
+      grades += total;
+      count++;
+    } 
+    else if (typeof total === 'string' && total.trim() === " ") {
+      obj[key] = undefined; 
+    }
+  }
+  avg = grades / count;
+  //to one decimal place    
+  return parseFloat(avg.toFixed(1));
 }
+// console.log(problemOne({SD123: "", SD122: 93}));
 
 /**
  * Convert an object to an array, where the keys are the first element in each subarray, and the values are the second element.
@@ -26,7 +41,7 @@ function problemOne(obj) {
  * Example (input): {a: 1, b: 2, c: 3}
  *
  * Example (output): [['a', 1], ['b', 2], ['c', 3]]
- *
+
  * @param {object} obj
  *
  * @returns {array}
@@ -35,11 +50,19 @@ function problemTwo(obj) {
   let arr;
 
   //add your code here
-
+  let arrList = [ ];
+  for(let key in obj) {
+    arrList.push([key, obj[key]])
+  }
+  arr = arrList;
   return arr;
 }
+console.log(problemTwo({a:1, b:2}));
+
 
 /**
+ * 
+ * 
  * You are given a hand of five playing cards.
  * Each card is represented as an object with a suit and a value.
  *
@@ -70,9 +93,11 @@ function problemThree(hand) {
   let typeofHand;
 
   //add your code here
+  
+  
+      return typeofHand;
+  }
 
-  return typeofHand;
-}
 
 /**
  * Check if two objects are equal in keys and values.
@@ -89,6 +114,7 @@ function problemFour(objOne, objTwo) {
   let isEqual;
 
   //add your code here
-
+  
+  isEqual = JSON.stringify(objOne) === JSON.stringify(objTwo);
   return isEqual;
 }
