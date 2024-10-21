@@ -50,6 +50,7 @@ function problemTwo(obj) {
   let arr;
 
   //add your code here
+  // My first two tests are showing expected === actual, but don't show as green. 
   let arrList = [ ];
   for(let key in obj) {
     arrList.push([key, obj[key]])
